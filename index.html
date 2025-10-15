@@ -5,61 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Cununie Alexa &amp; Edi</title>
 <link rel="stylesheet" href="style.css" />
-<style>
-  body {
-    font-family: "Poppins", sans-serif;
-    background-color: #faf9f6;
-    margin: 0;
-    padding: 0;
-  }
-  .gallery-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-  }
-  .gallery-links .card {
-    width: 45%;
-    max-width: 400px;
-  }
-  .gallery-links img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  }
-  @media (max-width: 768px) {
-    .gallery-links .card {
-      width: 90%;
-    }
-  }
-  #uploadSection {
-    border: 2px dashed #d8c7a0;
-    padding: 1.5rem;
-    margin: 2rem auto;
-    border-radius: 12px;
-    max-width: 600px;
-    text-align: center;
-    background: #fffaf2;
-  }
-  #uploadSection h3 {
-    margin-top: 0;
-    color: #6b4f2d;
-  }
-  #uploadStatus {
-    margin-top: 0.8rem;
-    color: green;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  footer {
-    text-align: center;
-    padding: 1rem;
-    color: #6b4f2d;
-    background: #f1e9d2;
-    border-top: 2px solid #d8c7a0;
-  }
-</style>
 </head>
 <body>
   <div class="overlay"></div>
@@ -92,8 +37,8 @@
 
     <!-- Upload section -->
     <section id="uploadSection" class="upload">
-      <h3>Încarcă poze de la cununie 📸</h3>
-      <p class="note">Selectează folderul țintă, alege fișierele și apasă <em>Încarcă</em>.</p>
+      <h2>Încarcă poze (Cloudinary)</h2>
+      <p class="note">Selectează folderul țintă, alege fișierele și apasă <em>Încarcă</em>. Fișierele vor fi stocate în contul Cloudinary specificat.</p>
 
       <label for="targetGallery">Încarcă în:</label>
       <select id="targetGallery">
@@ -107,29 +52,16 @@
     </section>
 
     <section class="notes">
-      <h3>Note tehnice</h3>
+      <h3>Note tehnice scurte</h3>
       <ul>
-        <li>Site static pentru GitHub Pages.</li>
-        <li>Upload direct în Cloudinary (configurat în <code>script.js</code>).</li>
+        <li>Site static, gata pentru GitHub Pages.</li>
+        <li>Upload direct în Cloudinary (configurat cu <code>cloudName</code> și <code>uploadPreset</code> în <code>script.js</code>).</li>
+        <li>Galeria afișează atât imaginile stocate local în repo (dacă adaugi manual în dosarele <code>/alexa-edi</code> și <code>/familie-invitati</code>), cât și imaginile încărcate în această sesiune pe Cloudinary.</li>
       </ul>
     </section>
+
   </main>
 
-  <footer>
-    Mulțumim că ai fost alături de noi 💛
-  </footer>
-
-<script>
-  const uploadBtn = document.getElementById('uploadBtn');
-  const uploadStatus = document.getElementById('uploadStatus');
-
-  uploadBtn.addEventListener('click', () => {
-    uploadStatus.textContent = "Poza ta a fost încărcată cu succes";
-    uploadStatus.style.opacity = 1;
-    setTimeout(() => {
-      uploadStatus.style.opacity = 0;
-    }, 3000);
-  });
-</script>
+<script src="script.js"></script>
 </body>
 </html>
