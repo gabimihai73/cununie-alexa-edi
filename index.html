@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Cununie Alexa &amp; Edi</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  body {
+    font-family: "Poppins", sans-serif;
+    background-color: #faf9f6;
+    margin: 0;
+    padding: 0;
+  }
+  .gallery-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .gallery-links .card {
+    width: 45%;
+    max-width: 400px;
+  }
+  .gallery-links img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  @media (max-width: 768px) {
+    .gallery-links .card {
+      width: 90%;
+    }
+  }
+  #uploadSection {
+    border: 2px dashed #d8c7a0;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    border-radius: 12px;
+    max-width: 600px;
+    text-align: center;
+    background: #fffaf2;
+  }
+  #uploadSection h3 {
+    margin-top: 0;
+    color: #6b4f2d;
+  }
+  #uploadStatus {
+    margin-top: 0.8rem;
+    color: green;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  footer {
+    text-align: center;
+    padding: 1rem;
+    color: #6b4f2d;
+    background: #f1e9d2;
+    border-top: 2px solid #d8c7a0;
+  }
+</style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <header class="site-head">
+    <h1>Cununie <span>&</span> Alexa Edi</h1>
+    <p class="sub">Galerie foto — Rustic · Cowboy</p>
+  </header>
+
+  <main class="content">
+    <section class="gallery-links">
+      <figure class="card" data-gallery="alexa">
+        <img src="images/Alexa &amp; Edi.jpg" alt="Alexa &amp; Edi" />
+        <figcaption>Alexa &amp; Edi</figcaption>
+      </figure>
+
+      <figure class="card" data-gallery="familie">
+        <img src="images/Familie &amp; invitati.jpg" alt="Familie &amp; Invitati" />
+        <figcaption>Familie &amp; invitați</figcaption>
+      </figure>
+    </section>
+
+    <!-- Modal / pop-up gallery -->
+    <div id="galleryModal" class="modal hidden" role="dialog" aria-hidden="true">
+      <div class="modal-body">
+        <button id="closeModal" class="close">✕</button>
+        <h2 id="modalTitle"></h2>
+        <div id="imagesGrid" class="images-grid"></div>
+      </div>
+    </div>
+
+    <!-- Upload section -->
+    <section id="uploadSection" class="upload">
+      <h3>Încarcă poze de la cununie 📸</h3>
+      <p class="note">Selectează folderul țintă, alege fișierele și apasă <em>Încarcă</em>.</p>
+
+      <label for="targetGallery">Încarcă în:</label>
+      <select id="targetGallery">
+        <option value="alexa">Alexa &amp; Edi</option>
+        <option value="familie">Familie &amp; invitați</option>
+      </select>
+
+      <input id="fileInput" type="file" multiple accept="image/*" />
+      <button id="uploadBtn">Încarcă</button>
+      <div id="uploadStatus" class="status"></div>
+    </section>
+
+    <section class="notes">
+      <h3>Note tehnice</h3>
+      <ul>
+        <li>Site static pentru GitHub Pages.</li>
+        <li>Upload direct în Cloudinary (configurat în <code>script.js</code>).</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    Mulțumim că ai fost alături de noi 💛
+  </footer>
+
+<script>
+  const uploadBtn = document.getElementById('uploadBtn');
+  const uploadStatus = document.getElementById('uploadStatus');
+
+  uploadBtn.addEventListener('click', () => {
+    uploadStatus.textContent = "Poza ta a fost încărcată cu succes";
+    uploadStatus.style.opacity = 1;
+    setTimeout(() => {
+      uploadStatus.style.opacity = 0;
+    }, 3000);
+  });
+</script>
+</body>
+</html>
