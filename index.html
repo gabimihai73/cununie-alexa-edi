@@ -26,7 +26,6 @@
       </figure>
     </section>
 
-    <!-- Modal / pop-up gallery -->
     <div id="galleryModal" class="modal hidden" role="dialog" aria-hidden="true">
       <div class="modal-body">
         <button id="closeModal" class="close">✕</button>
@@ -35,32 +34,48 @@
       </div>
     </div>
 
-    <!-- Upload section -->
     <section id="uploadSection" class="upload">
-      <h2>Încarcă poze (Cloudinary)</h2>
-      <p class="note">Selectează folderul țintă, alege fișierele și apasă <em>Încarcă</em>. Fișierele vor fi stocate în contul Cloudinary specificat.</p>
+  <h2>Încarcă poze (Cloudinary)</h2>
+  <p class="note">Selectează **tag-ul** țintă, alege fișierele și apasă <em>Încarcă</em>. Imaginile vor primi tag-ul corespunzător pentru a apărea automat în galerie.</p> 
 
-      <label for="targetGallery">Încarcă în:</label>
-      <select id="targetGallery">
-        <option value="alexa">Alexa &amp; Edi</option>
-        <option value="familie">Familie &amp; invitați</option>
-      </select>
+  <label for="targetGallery">Tag-ul imaginii:</label>
+  <select id="targetGallery">
+    <option value="alexa">Alexa &amp; Edi (Tag: alexa)</option>
+    <option value="familie">Familie &amp; invitați (Tag: familie)</option>
+  </select>
 
-      <input id="fileInput" type="file" multiple accept="image/*" />
-      <button id="uploadBtn">Încarcă</button>
-      <div id="uploadStatus" class="status"></div>
-    </section>
+  <input id="fileInput" type="file" multiple accept="image/*" />
+  <button id="uploadBtn">Încarcă</button>
+  <div id="uploadStatus" class="status"></div>
+</section>
 
     <section class="notes">
-      <h3>Note tehnice scurte</h3>
+      <h3>🙏🏻🙏🏻🙏🏻 MULȚUMIM CĂ AȚI FOST ALĂTURI DE NOI !!!❤️❤️❤️</h3>
       <ul>
-        <li>Site static, gata pentru GitHub Pages.</li>
-        <li>Upload direct în Cloudinary (configurat cu <code>cloudName</code> și <code>uploadPreset</code> în <code>script.js</code>).</li>
-        <li>Galeria afișează atât imaginile stocate local în repo (dacă adaugi manual în dosarele <code>/alexa-edi</code> și <code>/familie-invitati</code>), cât și imaginile încărcate în această sesiune pe Cloudinary.</li>
+        <li>💃🏻🕺🏻🥂 Vă așteptăm și la nuntă</li>
+        <li>✒️🗓️ SAVE DATE: 23 MAI 2026</li>
+        <li> ALEXA & EDI 💑 </li>
       </ul>
     </section>
 
   </main>
+
+<div id="lightboxModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-body lightbox-body">
+      <button id="closeLightbox" class="close">✕</button>
+      
+      <button id="prevButton" class="nav-button prev">❮</button>
+      
+      <div class="lightbox-content">
+        <img id="lightboxImage" src="" alt="Imagine full-size" />
+        <p id="lightboxCaption" class="caption"></p>
+        <a id="lightboxDownloadBtn" class="dl-btn" href="#" download>Descarcă Full-Size</a>
+      </div>
+      
+      <button id="nextButton" class="nav-button next">❯</button>
+      
+    </div>
+  </div>
 
 <script src="script.js"></script>
 </body>
